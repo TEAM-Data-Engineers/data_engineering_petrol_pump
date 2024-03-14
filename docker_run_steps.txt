@@ -1,0 +1,36 @@
+Please note all development has been done on Ubuntu.
+Please install docker first.
+
+Step 1) Navigate to the folder 
+Step 2) Run the below command to build the docker image
+        This command has to be run every time any change is made to the python file 
+
+        docker build . -t python:petrol-pump-data-frame  
+
+Step 3) Run the below command to start the services 
+        This will start the services and populate the petrol_pump table 
+
+        docker-compose -f docker-compose-petrol-pump.yaml up   
+
+Step 4) After the table is populated we can run the below command to connect to the database 
+
+        psql -h localhost -p 5433 -U postgres
+
+Step 5) Once all investigations are done we can press Ctrl+Z to exit docker
+
+Step 6) Run below code to properly stop docker and remove containers 
+
+        docker-compose -f docker-compose-petrol-pump.yaml down --remove-orphans 
+
+Step 7) To run process again start from Step 3 else move to Step 8
+
+Step 8) If any changes are made delete previous images using the following steps 
+        It is not mandatory but will free up space 
+
+        docker images 
+
+        This will give container id 
+
+        Then run docker -rmi <container-id>
+
+        Then run from Step 2) 

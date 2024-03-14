@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  stg_postgres:
+    image: postgres:15.5
+    ports:
+      - "5433:5432"
+    networks:
+      - elt_network
+    environment:
+      POSTGRES_DB: stg_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    volumes:
+      - ./docker-entrypoint-initdb.d
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  python_petrol_pump:
+    container_name : petrol-pump-loc-get-data
+    image : python:petrol-pump-data-frame
+
+    depends_on:
+      - stg_postgres
+
+
+networks:
+  elt_network:
+    driver: bridge
