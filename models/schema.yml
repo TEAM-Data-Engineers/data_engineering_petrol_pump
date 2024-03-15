@@ -1,0 +1,16 @@
+version: 2
+
+
+
+models:
+
+  - name: pump_locations
+    columns:
+      - name: amenity
+        tests:
+          - not null
+
+      - name: brand
+        description: "The title of the film."
+        tests:
+          - not_null

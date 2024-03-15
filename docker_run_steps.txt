@@ -14,7 +14,7 @@ Step 3) Run the below command to start the services
 
 Step 4) After the table is populated we can run the below command to connect to the database 
 
-        psql -h localhost -p 5433 -U postgres
+        psql -h localhost -p 5433 -U stg_db
 
 Step 5) Once all investigations are done we can press Ctrl+Z to exit docker
 
