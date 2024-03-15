@@ -1,0 +1,19 @@
+version: 2
+
+
+
+sources:
+
+  - name: stg_db
+
+    description: "Raw data from the destination PostgreSQL database."
+
+    database: stg_db
+
+    schema: public
+
+    tables:
+
+      - name: pump_locations
+
+        description: "List of Locations of Petrol_pumps."

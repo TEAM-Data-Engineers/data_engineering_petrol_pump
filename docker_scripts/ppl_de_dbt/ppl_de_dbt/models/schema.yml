@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: pump_locations
+    columns:
+      - name: brand
+        tests:
+          - unique
+          - not_null
+      
+      - name: amenity
+        tests:
+          - unique
+          - not_null

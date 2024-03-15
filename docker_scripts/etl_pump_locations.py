@@ -11,12 +11,12 @@ print(amenities)
 
 
 # establish connections
-conn_string = 'postgresql://postgres:postgres@172.17.0.1:5433/postgres'
+conn_string = 'postgresql://postgres:postgres@172.17.0.1:5433/stg_db'
 
 db = create_engine(conn_string)
 conn = db.connect()
 conn1 = psycopg2.connect(
-    database="postgres",
+    database="stg_db",
   user='postgres',
   password='postgres',
   host='172.17.0.1',
@@ -35,8 +35,13 @@ cursor.execute(sql)
 
 column_list = ['amenity','brand']
 #engine = create_engine('postgresql://username:password@hostname:port/database_name')
-amenities[column_list].to_sql('pump_locations', con=db, if_exists='append', index=False)
+amenities[column_list].to_sql('pump_locations', con=db, if_exists='replace', index=False)
+
+print('Petrol Pump Succesfully Created')
 
 conn1.commit()
 conn1.close()
+
+conn.commit()
+conn.close()
 

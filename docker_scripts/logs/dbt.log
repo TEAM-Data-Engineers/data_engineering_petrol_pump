@@ -1,0 +1,28 @@
+[0m14:08:38.124086 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db0fe667b90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db0fe6473d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db0fe667a90>]}
+
+
+============================== 14:08:38.155841 | d54f6d07-1047-4cda-9cfb-bf7de73527b7 ==============================
+[0m14:08:38.155841 [info ] [MainThread]: Running with dbt=1.5.0
+[0m14:08:38.174617 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'use_experimental_parser': 'False', 'warn_error': 'None', 'use_colors': 'True', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '/home/hravat/.dbt', 'log_format': 'default', 'debug': 'False', 'no_print': 'None', 'log_path': 'logs', 'version_check': 'True', 'introspect': 'True', 'printer_width': '80', 'fail_fast': 'False', 'target_path': 'None', 'partial_parse': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'write_json': 'True'}
+[0m14:08:38.335911 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m14:08:38.365970 [debug] [MainThread]: Command `dbt test` failed at 14:08:38.365689 after 0.29 seconds
+[0m14:08:38.380078 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db0fe664810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db0fe6671d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7db101f6e590>]}
+[0m14:08:38.392606 [debug] [MainThread]: Flushing usage events
+[0m00:30:49.559155 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79a350fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79a41ea50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79a351210>]}
+
+
+============================== 00:30:49.596598 | 97717bdd-bb70-40ed-a275-7b91ba9b1a88 ==============================
+[0m00:30:49.596598 [info ] [MainThread]: Running with dbt=1.5.0
+[0m00:30:49.657366 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'target_path': 'None', 'debug': 'False', 'use_colors': 'True', 'warn_error': 'None', 'log_path': 'logs', 'printer_width': '80', 'log_cache_events': 'False', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'fail_fast': 'False', 'profiles_dir': '/home/hravat/.dbt', 'indirect_selection': 'eager', 'version_check': 'True', 'write_json': 'True', 'partial_parse': 'True'}
+[0m00:30:49.717948 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m00:30:49.832978 [debug] [MainThread]: Command `dbt deps` failed at 00:30:49.831732 after 0.31 seconds
+[0m00:30:50.022251 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79a35ad90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79a3512d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x77d79dc72550>]}
+[0m00:30:50.141143 [debug] [MainThread]: Flushing usage events

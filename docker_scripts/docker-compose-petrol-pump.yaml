@@ -13,10 +13,13 @@ services:
       POSTGRES_PASSWORD: postgres
 
     volumes:
-      - ./docker-entrypoint-initdb.d
+#      - ./docker-entrypoint-initdb.d
+      - stg_postgres_volume:/var/lib/posgresql/data
+#      - /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/stg_dbdata:/var/lib/database
 
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
 
   python_petrol_pump:
     container_name : petrol-pump-loc-get-data
@@ -25,7 +28,46 @@ services:
     depends_on:
       - stg_postgres
 
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:1.5.0
+
+    command:
+      [
+
+        "test",
+        "--profiles-dir",
+        "/root",
+        "--project-dir",
+        "/dbt"
+#        "--full-refresh"
+      ]
+
+    networks:
+      - elt_network
+
+    volumes:
+      - ./ppl_de_dbt/ppl_de_dbt:/dbt
+      - ~/.dbt:/root
+
+    depends_on:
+
+      stg_postgres:
+        condition: service_started
+
+      python_petrol_pump:
+        condition: service_completed_successfully
+
+
+    environment:
+      DBT_PROFILE: ppl_de_dbt
+      DBT_TARGET: dev
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 networks:
   elt_network:
     driver: bridge
+
+volumes:
+  stg_postgres_volume:
