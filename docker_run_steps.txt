@@ -1,5 +1,6 @@
 Please note all development has been done on Ubuntu.
 Please install docker first.
+PLease install dbt  first 
 
 Step 1) Navigate to the folder 
 Step 2) Run the below command to build the docker image
@@ -34,3 +35,15 @@ Step 8) If any changes are made delete previous images using the following steps
         Then run docker -rmi <container-id>
 
         Then run from Step 2) 
+
+
+##### SHELL FILE #### 
+Command to run docker has beed added to shell scrpt docker_run.sh
+Navigate to the appropriate folder on terminal and run ./docker_run.sh
+
+Command to stop docker os Ctrl+Z and this has to be  added to the scripts 
+For now step 5 and 6 have to be done manually 
+
+
+
+
