@@ -33,9 +33,11 @@ day int ,airline char(20),destination char(20));'''
 
 cursor.execute(sql)
 
-column_list = ['amenity','brand']
+drop_column_list = ['geometry','nodes']
+amenities = amenities.drop(columns=drop_column_list)
+
 #engine = create_engine('postgresql://username:password@hostname:port/database_name')
-amenities[column_list].to_sql('pump_locations', con=db, if_exists='replace', index=False)
+amenities.to_sql('pump_locations', con=db, if_exists='replace', index=True)
 
 print('Petrol Pump Succesfully Created')
 

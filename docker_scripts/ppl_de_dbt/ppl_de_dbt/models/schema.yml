@@ -3,12 +3,352 @@ version: 2
 models:
   - name: pump_locations
     columns:
-      - name: brand
+
+      - name: element_type
         tests:
-          - unique
           - not_null
-      
+
+      - name: osmid
+        tests:
+          - not_null 
+          - unique         
+
+
       - name: amenity
         tests:
-          - unique
           - not_null
+
+      - name:  brand
+        tests:
+          - not_null
+
+      - name:  "brand:wikidata"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "brand:wikipedia"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "name"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  addr:city
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "addr:country"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "addr:housenumber"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "addr:postcode"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "addr:street"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  branch
+        tests:
+          - not_null
+
+      - name:  opening_hours
+        tests:
+          - not_null
+
+      - name:  "addr:suburb"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "operator"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "ref:linz:address_id"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  note
+        tests:
+          - not_null
+
+      - name:  compressed_air
+        tests:
+          - not_null
+
+      - name:  "fuel:diesel"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:octane_91"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:octane_95"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  phone
+        tests:
+          - not_null
+
+      - name:  website
+        tests:
+          - not_null
+
+      - name:  "source"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  wheelchair
+        tests:
+          - not_null
+
+      - name:  "fuel:electricity"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:lpg"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:octane_98"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  self_service
+        tests:
+          - not_null
+
+      - name:  official_name
+        tests:
+          - not_null
+
+      - name:  "fuel:HGV_diesel"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:cash"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:girocard"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:mastercard"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:visa"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  shop
+        tests:
+          - not_null
+
+      - name:  "name:mi"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  landuse
+        tests:
+          - not_null
+
+      - name:  layer
+        tests:
+          - not_null
+
+      - name:  "payment:credit_cards"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  building
+        tests:
+          - not_null
+
+      - name:  height
+        tests:
+          - not_null
+
+      - name:  diesel
+        tests:
+          - not_null
+
+      - name:  "fuel:GTL_diesel"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:cng"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:e10"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:e85"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "building:levels"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "roof:shape"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  toilets
+        tests:
+          - not_null
+
+      - name:  atm
+        tests:
+          - not_null
+
+      - name:  cafe
+        tests:
+          - not_null
+
+      - name:  car_wash
+        tests:
+          - not_null
+
+      - name:  check_date
+        tests:
+          - not_null
+
+      - name:  "payment:american_express"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:visa_debit"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  service
+        tests:
+          - not_null
+
+      - name:  "contact:phone"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:adblue"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "fuel:octane_100"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  "payment:debit_cards"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  smoking
+        tests:
+          - not_null
+
+      - name:  "operator:wikidata"
+
+        quote: true
+        tests:
+          - not_null
+
+      - name:  start_date
+        tests:
+          - not_null
+
+      - name:  ways
+        tests:
+          - not_null
+
+      - name:  "type"
+
+        quote: true
+        tests:
+          - not_null
+
