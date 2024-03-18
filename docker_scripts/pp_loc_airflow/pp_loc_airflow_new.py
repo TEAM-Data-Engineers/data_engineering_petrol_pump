@@ -58,14 +58,13 @@ execute_bash_script = BashOperator(
 
 )
 
-bash_command_down = 'timeout 5m docker-compose -f /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/docker-compose-petrol-pump.yaml down'   
+bash_command_down = 'timeout 5m docker-compose -f /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/docker-compose-petrol-pump.yaml down --remove orphans'   
 
 
 execute_bash_exit = BashOperator(task_id="docker_compose_down", bash_command=bash_command_down,dag=dag ,     trigger_rule=TriggerRule.ONE_FAILED,)
 
 
 execute_bash_script >> execute_bash_exit
-
 
 
 
