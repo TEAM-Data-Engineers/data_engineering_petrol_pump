@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # Set working directory in the container
-WORKDIR /media/sf_data_engineering/group_project/data_engineering_petrol_pump/ppl_dockerfiles
+WORKDIR /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/ppl_dockerfile
 
 # Copy requirements file
 COPY requirements.txt ./

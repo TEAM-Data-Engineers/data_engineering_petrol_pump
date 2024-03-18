@@ -2,9 +2,14 @@ version: '3'
 
 services:
   stg_postgres:
+    container_name : docker-stg-db
     image: postgres:15.5
+    expose:
+      - "5434" # Publishes 5433 to other containers but NOT to host machine
     ports:
-      - "5433:5432"
+      - "5434:5434"
+    command: 
+      -p 5434
     networks:
       - elt_network
     environment:
@@ -64,6 +69,24 @@ services:
 
     extra_hosts:
       - "host.docker.internal:host-gateway"
+
+#  dc_compose_down:
+#    container_name : docker-compose-down-count
+#    image : ubuntu:docker-compose-down
+
+#    depends_on:
+#      dbt:
+#        condition: service_completed_successfully
+
+#  server:
+#    container_name: dc-compose-down
+#    image: ubuntu:latest
+#    command: sh -c "docker-compose -f docker-compose-petrol-pump.yaml down --remove orphans"
+#
+#    depends_on:
+#      
+#      dbt:
+#        condition: service_completed_successfully
 
 networks:
   elt_network:
