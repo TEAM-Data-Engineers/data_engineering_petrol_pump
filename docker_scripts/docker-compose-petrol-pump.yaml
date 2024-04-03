@@ -3,6 +3,7 @@ version: '3'
 services:
   stg_postgres:
     container_name : docker-stg-db
+    #image: mdillon/postgis
     image: postgres:15.5
     expose:
       - "5434" # Publishes 5433 to other containers but NOT to host machine
@@ -17,8 +18,15 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
 
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U postgres"]
+#      interval: 10s
+#      retries: 5
+#      timeout: 5s
+
+
     volumes:
-#      - ./docker-entrypoint-initdb.d
+      - ./docker-entrypoint-initdb.d
       - stg_postgres_volume:/var/lib/posgresql/data
 #      - /media/sf_data_engineering/group_project/data_engineering_petrol_pump/docker_scripts/stg_dbdata:/var/lib/database
 
@@ -31,7 +39,8 @@ services:
     image : python:petrol-pump-data-frame
 
     depends_on:
-      - stg_postgres
+      stg_postgres:
+        condition: service_started
 
   dbt:
     image: ghcr.io/dbt-labs/dbt-postgres:1.5.0
@@ -56,11 +65,11 @@ services:
 
     depends_on:
 
-      stg_postgres:
-        condition: service_started
-
       python_petrol_pump:
         condition: service_completed_successfully
+
+      stg_postgres:
+        condition: service_started
 
 
     environment:
