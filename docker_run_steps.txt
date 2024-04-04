@@ -1,6 +1,7 @@
 Please note all development has been done on Ubuntu.
 Please install docker first.
-PLease install dbt  first 
+PLease install dbt  first.
+PLease install apache-airlfow
 
 Step 1) Navigate to the folder 
 Step 2) Run the below command to build the docker image
@@ -15,7 +16,7 @@ Step 3) Run the below command to start the services
 
 Step 4) After the table is populated we can run the below command to connect to the database 
 
-        psql -h localhost -p 5433 -U stg_db
+        psql -h localhost -p 5434 -U stg_db
 
 Step 5) Once all investigations are done we can press Ctrl+Z to exit docker
 
@@ -46,4 +47,11 @@ For now step 5 and 6 have to be done manually
 
 
 
+##### Run from airlfow##### 
+
+Step 1) Activate airflow environment 
+Step 2) Add the python dag file to ExampleDAG folder 
+Step 3) run airflow webserver 
+Step 4) run airflow scheduler 
+Step 5) Login to airflow and run the DAG 
 
