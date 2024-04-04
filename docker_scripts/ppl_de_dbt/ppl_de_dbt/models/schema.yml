@@ -352,3 +352,10 @@ models:
         tests:
           - not_null
 
+      - name:  geometry
+        tests:
+          - not_null          
+
+      - name:  nodes
+        tests:
+          - not_null          

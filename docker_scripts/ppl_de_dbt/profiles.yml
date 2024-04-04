@@ -1,0 +1,74 @@
+postgres_transformations:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 1
+      host: host.docker.internal
+      port: 5434
+      user: postgres
+      pass: secret
+      dbname: destination_db
+      schema: public
+
+    prod:
+      type: postgres
+      threads: [1 or more]
+      host: [host]
+      port: [port]
+      user: [prod_username]
+      pass: [prod_password]
+      dbname: [dbname]
+      schema: [prod_schema]
+
+  target: dev
+
+fcc_de_dbt:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 1
+      host: host.docker.internal
+      port: 5434
+      user: postgres
+      pass: secret
+      dbname: destination_db
+      schema: public
+
+    prod:
+      type: postgres
+      threads: [1 or more]
+      host: [host]
+      port: [port]
+      user: [prod_username]
+      pass: [prod_password]
+      dbname: [dbname]
+      schema: [prod_schema]
+
+  target: dev
+
+ppl_de_dbt:
+  outputs:
+
+    dev:
+      type: postgres
+      threads: 1
+      host: host.docker.internal
+      port: 5434
+      user: postgres
+      pass: postgres
+      dbname: stg_db
+      schema: public
+
+    prod:
+      type: postgres
+      threads: [1 or more]
+      host: [host]
+      port: [port]
+      user: [prod_username]
+      pass: [prod_password]
+      dbname: [dbname]
+      schema: [prod_schema]
+
+  target: dev
