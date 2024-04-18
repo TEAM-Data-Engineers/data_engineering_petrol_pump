@@ -1,0 +1,72 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .large-text {
+                font-size: 24px;
+            }
+        .medium-text {
+                font-size: 12px;
+            }  
+        input[type="text"] {
+                width: 300px; /* Adjust as needed */
+                height: 40px; /* Adjust as needed */
+                font-size: 12px; /* Optional: Adjust the font size */
+            }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address to Coordinates</title>
+</head>
+<body>
+    <h1>Enter Address to Get Coordinates</h1>
+    <form action="/get_coordinates" method="post">
+        <input type="text" name="address" placeholder="Enter Address">
+        <button type="submit"><p class="medium-text">Get Coordinates</p></button>
+    </form>
+    <div id="result"></div>
+    
+    <script>
+
+        
+
+        document.querySelector('form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/get_coordinates', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+        document.getElementById('result').innerHTML = `
+        <br><br><br>
+        <p class="large-text">Latitude: ${data.latitude}</p> <br>  
+        <p class="large-text">Longitude: ${data.longitude}</p> <br>
+        <p class="large-text">OSMID: ${data.osmid}</p> <br>
+        <p class="large-text">Address: ${data.address}</p> <br>
+        <p class="large-text">DB ConnectionStatus: ${data.connection_status}</p> <br>
+        <p class="large-text">Nearest Pump Locations</p> <br> ${data.pump_locations}
+        `;
+
+            
+
+    });
+    
+    </script>
+</body>
+</html>    
+
