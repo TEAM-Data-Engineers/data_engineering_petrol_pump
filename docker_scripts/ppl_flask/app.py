@@ -1,6 +1,6 @@
 # app.py
 from flask import Flask, render_template, request, jsonify
-from utils import get_coordinates_from_address,get_petrol_pump_locations
+from utils import get_coordinates_from_address,get_petrol_pump_locations,nearest_pp_distance
 
 app = Flask(__name__)
 
@@ -24,7 +24,7 @@ def get_coordinates_route():
     data['osmid'] = osmid
     data['address'] = address
     
-    df,connection_status = get_petrol_pump_locations(address)
+    df,connection_status = nearest_pp_distance(address)
     data['connection_status'] = connection_status
     #data['pump_locations'] = df.to_json(orient="records")
     data['pump_locations'] = df.to_html()
